@@ -107,7 +107,9 @@ impl System {
             self.imgui.io_mut().update_delta_time(now - last_frame_time);
             last_frame_time = now;
 
+            self.imgui.style_mut().window_padding = [0.0, 0.0];
             let display_size = self.imgui.io().display_size;
+
             let ui = self.imgui.new_frame();
             ui.window("ImGui Window")
                 .position([0.0, 0.0], Condition::Always)

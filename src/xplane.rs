@@ -112,6 +112,8 @@ impl<A: App + 'static> Delegate for WindowDelegate<A> {
         let geometry = window.geometry();
 
         self.platform.prepare_frame(self.imgui.io_mut(), window);
+
+        self.imgui.style_mut().window_padding = [0.0, 0.0];
         let display_size = self.imgui.io().display_size;
 
         let ui = self.imgui.new_frame();
