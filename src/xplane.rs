@@ -8,7 +8,6 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use imgui::{Condition, Context, WindowFlags};
-use tracing::trace;
 
 use dcommon::ui::events::Event;
 use dcommon::ui::geometry::Rect;
@@ -108,7 +107,6 @@ impl<A: App> WindowDelegate<A> {
 
 impl<A: App + 'static> Delegate for WindowDelegate<A> {
     fn draw(&mut self, window: &mut Window) {
-        trace!(window = window.title(), "draw()");
         let geometry = window.geometry();
 
         self.platform.prepare_frame(self.imgui.io_mut(), window);
@@ -127,7 +125,6 @@ impl<A: App + 'static> Delegate for WindowDelegate<A> {
     }
 
     fn handle_event(&mut self, window: &Window, event: Event) {
-        trace!(window = window.title(), ?event, "handle_event()");
         let consumed = self.app.borrow_mut().handle_event(event.clone());
         if !consumed {
             platform::handle_event(self.imgui.io_mut(), window, event);
