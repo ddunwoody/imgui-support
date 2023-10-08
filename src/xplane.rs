@@ -27,12 +27,14 @@ pub struct System {
 }
 
 impl System {
-    pub fn toggle_hint_window(&mut self) -> bool {
-        self.window.toggle_visible()
+    #[must_use]
+    pub fn window(&self) -> &Ref {
+        &self.window
     }
 
-    pub fn set_hint_window_visible(&mut self, visible: bool) {
-        self.window.set_visible(visible);
+    #[must_use]
+    pub fn window_mut(&mut self) -> &mut Ref {
+        &mut self.window
     }
 }
 
