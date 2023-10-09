@@ -4,20 +4,25 @@
  * All rights reserved.
  */
 
+#![deny(clippy::all)]
+#![warn(clippy::pedantic)]
+#![allow(clippy::missing_panics_doc)]
+
 use std::sync::mpsc::Receiver;
 use std::time::Instant;
 
+use dcommon::ui::events::{Action, Event, Modifiers, MouseButton};
 use gl21 as gl;
 use glfw::{Context, Glfw, Window, WindowEvent};
-use imgui::{Condition, WindowFlags};
+use image::{ImageError, RgbaImage};
+use imgui::{Condition, TextureId, WindowFlags};
 
-use dcommon::ui::events::{Action, Event, Modifiers, MouseButton};
+use imgui_support::App;
 
-use crate::standalone::keymap::to_imgui_key;
-use crate::standalone::platform::Platform;
-use crate::standalone::renderer::{render, Renderer};
-pub use crate::standalone::utils::get_screen_bounds;
-use crate::App;
+use crate::keymap::to_imgui_key;
+use crate::platform::Platform;
+use crate::renderer::{bind_texture, render, Renderer};
+pub use crate::utils::get_screen_bounds;
 
 mod keymap;
 mod platform;
@@ -79,6 +84,14 @@ pub fn init<A: App + 'static>(
         last_frame_time: Instant::now(),
         app: Box::new(app),
     }
+}
+
+/// # Errors
+///
+/// Returns `ImageError` if the image could not be loaded.
+pub fn create_texture(image: &RgbaImage) -> Result<TextureId, ImageError> {
+    let texture_id = bind_texture();
+    imgui_support::create_texture(texture_id, image)
 }
 
 impl System {

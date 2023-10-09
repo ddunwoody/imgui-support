@@ -10,7 +10,7 @@ use gl::types::GLuint;
 use gl21 as gl;
 use imgui::{Context, DrawIdx};
 
-use crate::renderer_common::{
+use imgui_support::renderer_common::{
     add_fonts, configure_imgui, render as common_render, return_param, FontStyles,
 };
 
@@ -140,7 +140,7 @@ impl Drop for Renderer {
     }
 }
 
-fn bind_texture() -> GLuint {
+pub(crate) fn bind_texture() -> GLuint {
     unsafe {
         let texture = return_param(|x| gl::GenTextures(1, x));
         gl::BindTexture(gl::TEXTURE_2D, texture);

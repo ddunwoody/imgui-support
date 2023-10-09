@@ -1,0 +1,16 @@
+[package]
+name = "imgui-support-xplane"
+authors.workspace = true
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+dcommon = { git = "https://github.com/flightlevelchange/davionics.git", features = ["ui"] }
+gl21 = { git = "https://github.com/ddunwoody/gl21.git" }
+image = { version = "0.24.6", default-features = false, features = ["jpeg", "png"] }
+imgui = { git = "https://github.com/ddunwoody/imgui-rs.git", branch = "0.11-ddunwoody" }
+imgui-support = { path = "../common" }
+xplm = { git = "https://github.com/ddunwoody/rust-xplm.git" }
+xplm-ext = { git = "https://github.com/flightlevelchange/davionics.git", features = ["ui"] }
+xplm-sys = { git = "https://github.com/ddunwoody/xplm-sys.git" }
+

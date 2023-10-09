@@ -1,0 +1,13 @@
+[package]
+name = "imgui-support"
+authors.workspace = true
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+dcommon = { git = "https://github.com/flightlevelchange/davionics.git", features = ["ui"] }
+gl21 = { git = "https://github.com/ddunwoody/gl21.git" }
+image = { version = "0.24.6", default-features = false, features = ["jpeg", "png"] }
+imgui = { git = "https://github.com/ddunwoody/imgui-rs.git", branch = "0.11-ddunwoody" }
+tracing = "0.1.37"
+

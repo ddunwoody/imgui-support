@@ -4,19 +4,24 @@
  * All rights reserved.
  */
 
+#![deny(clippy::all)]
+#![warn(clippy::pedantic)]
+#![allow(clippy::missing_panics_doc)]
+
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use imgui::{Condition, Context, WindowFlags};
+use imgui::{Condition, Context, TextureId, WindowFlags};
 
 use dcommon::ui::events::Event;
 use dcommon::ui::geometry::Rect;
+use image::{ImageError, RgbaImage};
 use xplm_ext::ui::{Decoration, Delegate, Gravity, Layer, PositioningMode, Ref, Window};
 
-use crate::xplane::platform::Platform;
-use crate::xplane::renderer::Renderer;
-pub use crate::xplane::utils::get_screen_bounds;
-use crate::App;
+use crate::platform::Platform;
+use crate::renderer::{bind_texture, Renderer};
+pub use crate::utils::get_screen_bounds;
+use imgui_support::App;
 
 mod platform;
 mod renderer;
@@ -82,6 +87,14 @@ pub fn init<A: App + 'static>(
     });
 
     System { window }
+}
+
+/// # Errors
+///
+/// Returns `ImageError` if the image could not be loaded.
+pub fn create_texture(image: &RgbaImage) -> Result<TextureId, ImageError> {
+    let texture_id = bind_texture();
+    imgui_support::create_texture(texture_id, image)
 }
 
 struct WindowDelegate<A: App> {

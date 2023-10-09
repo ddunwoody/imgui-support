@@ -23,11 +23,9 @@
 //!
 //! The [examples](https://github.com/aloucks/imgui-glfw-support/tree/master/examples) can be found on github.
 
-use glfw;
+use crate::keymap::to_imgui_key;
 use glfw::{Action, Window, WindowEvent};
 use imgui::{Context, Io, Key, MouseButton};
-
-use crate::standalone::keymap::to_imgui_key;
 
 pub struct Platform;
 

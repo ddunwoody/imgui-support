@@ -15,7 +15,9 @@ use xplm_sys::{XPLMBindTexture2d, XPLMGenerateTextureNumbers, XPLMSetGraphicsSta
 
 use dcommon::ui::geometry::Rect;
 
-use crate::renderer_common::{add_fonts, configure_imgui, render, return_param, FontStyles};
+use imgui_support::renderer_common::{
+    add_fonts, configure_imgui, render, return_param, FontStyles,
+};
 
 pub struct Renderer {
     font_texture: GLuint,
@@ -163,7 +165,7 @@ fn mult_matrix_vec4f(m: [f32; 16], v: [f32; 4]) -> [f32; 4] {
     out
 }
 
-fn bind_texture() -> GLuint {
+pub(crate) fn bind_texture() -> GLuint {
     #[allow(clippy::cast_sign_loss)]
     unsafe {
         let texture = return_param(|x| XPLMGenerateTextureNumbers(x, 1));
