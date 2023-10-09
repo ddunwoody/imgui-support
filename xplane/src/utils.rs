@@ -6,7 +6,7 @@
 
 use xplm_sys::XPLMGetScreenBoundsGlobal;
 
-use dcommon::ui::geometry::Rect;
+use imgui_support::geometry::Rect;
 
 #[must_use]
 pub fn get_screen_bounds() -> Rect {

@@ -11,17 +11,17 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use imgui::{Condition, Context, TextureId, WindowFlags};
-
-use dcommon::ui::events::Event;
-use dcommon::ui::geometry::Rect;
 use image::{ImageError, RgbaImage};
+use imgui::{Condition, Context, TextureId, WindowFlags};
 use xplm_ext::ui::{Decoration, Delegate, Gravity, Layer, PositioningMode, Ref, Window};
+
+use imgui_support::events::Event;
+use imgui_support::geometry::Rect;
+use imgui_support::App;
 
 use crate::platform::Platform;
 use crate::renderer::{bind_texture, Renderer};
 pub use crate::utils::get_screen_bounds;
-use imgui_support::App;
 
 mod platform;
 mod renderer;

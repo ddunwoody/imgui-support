@@ -15,8 +15,10 @@ use image::{EncodableLayout, ImageError, RgbaImage};
 use imgui::{TextureId, Ui};
 use tracing::debug;
 
-use dcommon::ui::events::Event;
+use crate::events::Event;
 
+pub mod events;
+pub mod geometry;
 pub mod renderer_common;
 
 pub trait App {

@@ -11,11 +11,11 @@
 use std::sync::mpsc::Receiver;
 use std::time::Instant;
 
-use dcommon::ui::events::{Action, Event, Modifiers, MouseButton};
 use gl21 as gl;
 use glfw::{Context, Glfw, Window, WindowEvent};
 use image::{ImageError, RgbaImage};
 use imgui::{Condition, TextureId, WindowFlags};
+use imgui_support::events::{Action, Event, Modifiers, MouseButton};
 
 use imgui_support::App;
 

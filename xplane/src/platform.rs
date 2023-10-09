@@ -9,11 +9,11 @@ use std::primitive;
 use imgui::{sys, Context, Io, Key, MouseButton};
 use xplm::data::borrowed::{DataRef, FindError};
 use xplm::data::DataRead;
-
-use dcommon::ui::events;
-use dcommon::ui::events::{Action, Event, Modifiers};
-use dcommon::ui::geometry::Rect;
 use xplm_ext::ui::Window;
+
+use imgui_support::events;
+use imgui_support::events::{Action, Event, Modifiers};
+use imgui_support::geometry::Rect;
 
 pub struct Platform {
     frame_rate_period: DataRef<f32>,

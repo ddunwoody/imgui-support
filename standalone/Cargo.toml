@@ -5,7 +5,7 @@ edition.workspace = true
 version.workspace = true
 
 [dependencies]
-dcommon = { git = "https://github.com/flightlevelchange/davionics.git", features = ["ui"] }
+dcommon = { git = "https://github.com/flightlevelchange/davionics.git" }
 gl21 = { git = "https://github.com/ddunwoody/gl21.git" }
 glfw = "0.53.0"
 image = { version = "0.24.6", default-features = false, features = ["jpeg", "png"] }

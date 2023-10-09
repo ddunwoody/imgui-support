@@ -6,7 +6,7 @@
 
 use glfw::Glfw;
 
-use dcommon::ui::geometry::Rect;
+use imgui_support::geometry::Rect;
 
 #[must_use]
 pub fn get_screen_bounds(glfw: &mut Glfw) -> Rect {

@@ -13,8 +13,7 @@ use xplm::data::borrowed::{DataRef, FindError};
 use xplm::data::ArrayRead;
 use xplm_sys::{XPLMBindTexture2d, XPLMGenerateTextureNumbers, XPLMSetGraphicsState};
 
-use dcommon::ui::geometry::Rect;
-
+use imgui_support::geometry::Rect;
 use imgui_support::renderer_common::{
     add_fonts, configure_imgui, render, return_param, FontStyles,
 };
