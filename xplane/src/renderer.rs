@@ -6,16 +6,16 @@
 
 use std::mem;
 
-use gl::types::GLuint;
 use gl21 as gl;
+use gl::types::GLuint;
 use imgui::{Context, DrawIdx};
-use xplm::data::borrowed::{DataRef, FindError};
 use xplm::data::ArrayRead;
+use xplm::data::borrowed::{DataRef, FindError};
 use xplm_sys::{XPLMBindTexture2d, XPLMGenerateTextureNumbers, XPLMSetGraphicsState};
 
 use imgui_support::geometry::Rect;
 use imgui_support::renderer_common::{
-    add_fonts, configure_imgui, render, return_param, FontStyles,
+    add_fonts, configure_imgui, FontStyles, render, return_param,
 };
 
 pub struct Renderer {

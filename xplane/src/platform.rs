@@ -6,14 +6,15 @@
 
 use std::primitive;
 
-use imgui::{sys, Context, Io, Key, MouseButton};
+use imgui::{Context, Io, Key, MouseButton, sys};
 use xplm::data::borrowed::{DataRef, FindError};
 use xplm::data::DataRead;
-use xplm_ext::ui::Window;
 
 use imgui_support::events;
 use imgui_support::events::{Action, Event, Modifiers};
 use imgui_support::geometry::Rect;
+
+use crate::ui::Window;
 
 pub struct Platform {
     frame_rate_period: DataRef<f32>,

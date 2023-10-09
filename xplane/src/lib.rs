@@ -13,19 +13,21 @@ use std::rc::Rc;
 
 use image::{ImageError, RgbaImage};
 use imgui::{Condition, Context, TextureId, WindowFlags};
-use xplm_ext::ui::{Decoration, Delegate, Gravity, Layer, PositioningMode, Ref, Window};
 
+use imgui_support::App;
 use imgui_support::events::Event;
 use imgui_support::geometry::Rect;
-use imgui_support::App;
 
 use crate::platform::Platform;
 use crate::renderer::{bind_texture, Renderer};
+use crate::ui::{Decoration, Delegate, Gravity, Layer, PositioningMode, Ref, Window};
 pub use crate::utils::get_screen_bounds;
 
 mod platform;
 mod renderer;
 mod utils;
+
+pub mod ui;
 
 pub struct System {
     window: Ref,
