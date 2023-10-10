@@ -9,7 +9,7 @@ members = [
 resolver = "2"
 
 [workspace.package]
-authors = ["David Dunwoody <david@flightlevelchange.co.uk>"]
+authors = ["David Dunwoody <david.dunwoody@gmail.com>"]
 edition = "2021"
 version = "0.1.0"
 
